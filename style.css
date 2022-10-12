@@ -33,7 +33,7 @@ body {
 
 .footerlabel {
     margin: auto;
-    border: 2px solid red;
+
     width: max-content;
     
 }
@@ -75,8 +75,7 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
-
-    
+ 
     border: 2px solid black
 }
 
@@ -149,7 +148,10 @@ body {
 }
 
 
-
+.grey {
+    opacity: .5;
+    color: grey;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -176,6 +178,23 @@ body {
         
     font-size: 2em;
     }
+
+    
+  }
+
+  @media only screen and (max-width: 900px) {
+    .header {
+     font-size: 1em;
+    }
+
+    .selection {
+ 
+  
+     font-size: 3em;
+     }
+
+     .footer {font-size: .8em;}
+    
 
     
   }
