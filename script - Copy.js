@@ -352,6 +352,13 @@ else if (turn == 9 ) {
 
 const addEvents = () => {
 
+    const reset = document.querySelector('.resetbutton')
+    reset.addEventListener('click', (e) => {
+      window.location.reload()
+    })
+
+
+
     let cell = document.querySelectorAll('.cell')
     cell = Array.from(cell)
     
