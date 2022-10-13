@@ -163,6 +163,30 @@ const displayReset = () => {
   
 }
 
+const turnCellRed = (indexes) => {
+
+    const cell = document.querySelectorAll('.cell') 
+    cell.forEach((elem,ind,arr) => {
+        if (
+            elem.getAttribute('data') == indexes[0] + 1 || elem.getAttribute('data') == indexes[1] + 1|| elem.getAttribute('data') == indexes[2] + 1 ) {
+                elem.classList.add("redtilt")
+            console.log(elem.getAttribute('data'))
+        }
+      
+    })
+
+
+    const selection = document.querySelectorAll('.selection')
+    selection.forEach((elem,ind,arr) => {
+        if (
+            elem.getAttribute('data') == indexes[0] + 1 || elem.getAttribute('data') == indexes[1] + 1|| elem.getAttribute('data') == indexes[2] + 1 ) {
+            elem.classList.add("borderred")
+            console.log(elem.getAttribute('data'))
+        }
+    })
+
+}
+
 
 
 const checkWinner = () => {
@@ -170,9 +194,13 @@ const checkWinner = () => {
 
 
 if (board[0] == board[1] && board[0] == board[2] && board[0]) {
+
+
+
 const winner = board[0] == "X" ? "Player 1" : "Player 2"
 playertext.textContent = `We have a Winner!  ${winner} Wins`
 displayReset()
+turnCellRed([0,1,2])
 
 }
 
@@ -181,12 +209,14 @@ else if (board[3] == board[4] && board[3] == board[5] && board[3]) {
     const winner = board[3] == "X" ? "Player 1" : "Player 2"
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
+    turnCellRed([3,4,5])
     
 }
 else if (board[6] == board[7] && board[6] == board[8] && board[6] ) {
     const winner = board[7] == "X" ? "Player 1" : "Player 2"
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
+    turnCellRed([6,7,8])
 }
 
 
@@ -198,18 +228,21 @@ else if (board[0] == board[3] && board[0] == board[6] && board[0]) {
     const winner = board[3] == "X" ? "Player 1" : "Player 2"
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
+    turnCellRed([0,3,6])
     
 }
 else if (board[1] == board[4] && board[1] == board[7] && board[1] ) {
     const winner = board[7] == "X" ? "Player 1" : "Player 2"
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
+    turnCellRed([1,4,7])
 }
 
 else if (board[2] == board[5] && board[2] == board[8] && board[2]) {
     const winner = board[3] == "X" ? "Player 1" : "Player 2"
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
+    turnCellRed([2,5,8])
     
 }
 
@@ -220,18 +253,23 @@ else if (board[0] == board[4] && board[0] == board[8] && board[0]) {
     const winner = board[3] == "X" ? "Player 1" : "Player 2"
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
+    turnCellRed([0,4,8])
     
 }
 else if (board[2] == board[4] && board[2] == board[6] && board[2] ) {
     const winner = board[7] == "X" ? "Player 1" : "Player 2"
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
+    turnCellRed([2,4,6])
 }
 
 else if (board[2] == board[5] && board[2] == board[8] && board[2]) {
+
+
     const winner = board[3] == "X" ? "Player 1" : "Player 2"
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
+    turnCellRed([2,5,8])
     
 }
 
@@ -248,10 +286,32 @@ else if (turn == 9 ) {
 
 
 
-
-
-
 }
+
+
+const addEvents = () => {
+
+    let cell = document.querySelectorAll('.cell')
+    cell = Array.from(cell)
+    
+    cell.forEach((elem,ind,arr) => {
+        elem.addEventListener('click', setToX)
+    
+    
+        elem.addEventListener('mouseover', setToXMouseOver)
+    
+    
+        elem.addEventListener('mouseout', remove)
+    
+    })
+    
+    
+
+    
+    
+    
+    }
+addEvents()
 
 
 
@@ -264,18 +324,11 @@ return {setToX, setToXMouseOver, remove, removeEvents, render}
 
 
 const Player = (name)  => {
-const count = 0;
-sayMe = function() {};
-sayhe = function() {};
-    return {name, sayMe, sayhe}
 
+return {name}
 
 }
 
-const jeff = Player("jeff")
-console.log(jeff)
-
-console.log(gameboard.board)
 
 
 
@@ -290,31 +343,6 @@ console.log(gameboard.board)
 
 
 
-
-
-const addEvents = (() => {
-
-let cell = document.querySelectorAll('.cell')
-cell = Array.from(cell)
-
-cell.forEach((elem,ind,arr) => {
-    elem.addEventListener('click', gameboard.setToX)
-
-
-    elem.addEventListener('mouseover', gameboard.setToXMouseOver)
-
-
-    elem.addEventListener('mouseout', gameboard.remove)
-
-})
-
-
-
-
-
-
-
-})();
 
 
 

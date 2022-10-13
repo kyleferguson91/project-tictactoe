@@ -78,6 +78,15 @@ body {
     font-size: 2em;
 }
 
+.borderred {
+    border: 2px dashed red;
+
+}
+
+.redtilt { 
+
+}
+
 .none {
     display: none;
 }
