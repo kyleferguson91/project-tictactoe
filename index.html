@@ -17,10 +17,29 @@
         <div class="header">
     
             <h1 class="headertext">Tic Tac Toe</h1>
-            <p class="playertext">Player 1, Make your Move</p>
+            <p class="playertext">
+
+            </p>
             <button class="buttonmask none">Reset!</button>
         </div>
-        <div class="center">
+        <div class="playerinput none">                
+          <div class="namebox">
+            <p>Player One</p>
+            <p>Player Two</p>
+          </div>
+            <p class="enternames">Enter your Names:</p>
+           <div class="inputbox">
+            <input type="text" name="" id="player1" class="player1" value=""  autocomplete="on" >
+            <input type="text" name="" id="player2" class="player2" value="" autocomplete="off" >
+           </div>
+           <div class="submitcontainer">
+            <button class="startgame">Start Game</button>
+        </div>
+        
+      
+        </div>
+        <div class="center none">
+            
             <div class="gameboard">
 
                 <div class="boardgrid">
@@ -100,6 +119,8 @@
                 </div>
             </div>
         </div>
+
+        <button class="startbutton">Start Game</button>
         <div class="footer">
            <div class="footerlabel"> <h2 class="footertext">Fizzle Boch Production</h2></div>
         </div>

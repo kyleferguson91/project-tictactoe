@@ -1,13 +1,70 @@
 
+const Player = (name)  => {
+
+    return {name}
+    
+    }
+    
 
 
 
 const gameboard = (() => {
-   
+    const startButton = document.querySelector('.startbutton')
+    const startGameButton = document.querySelector('.startgame')
+    const playerInput = document.querySelector('.playerinput')
+    const mainGrid = document.querySelector('.center')
     const playertext = document.querySelector('.playertext')    
+    const player1Selector = document.querySelector('.player1')
+    const player2Selector = document.querySelector('.player2')
 
+  
  const board = ['', '', '', '', '', '', '', '', ''];
 let turn = 0
+
+
+const startEvent = (() => {
+
+  
+    startButton.addEventListener('click', (e) => {
+        e.target.classList.toggle('none')
+       
+        playerInput.classList.toggle('none')
+     
+
+
+    
+
+    })
+
+
+  
+
+})();
+
+const startGame = (() => {
+
+
+startGameButton.addEventListener('click', (e) => {
+    playerInput.classList.toggle('none')
+    mainGrid.classList.toggle('none')   
+   
+
+
+    const player1 = Player(player1Selector.value)
+    const player2 = Player(player2Selector.value)
+    console.log(player1Selector.value, player2Selector.value)
+
+    console.log(player1, player2.name)
+    playertext.textContent = `${player1.name}, Make Your Move!`
+    return {}
+})
+
+
+})();
+
+
+
+
 
 const setToX = (e) => {
     const index = e.target.getAttribute('data')
@@ -31,23 +88,27 @@ board[index - 1] = "O"}
     render()
     removeEvents(e, index)
     addSingleClick(e, index)
-    updatePlayerText()
+  
     turn++
+    updatePlayerText()
     checkWinner() 
 
    
    
-    console.log(board, "turn", turn)
+    console.log(board, "turn", turn, player1Selector)
 }   
 
 
 const updatePlayerText = () => {
-    
-const playertext = document.querySelector('.playertext')
+ 
+console.log("update", player1.value, player2.value)
 
-if (playertext.textContent == "Player 1, Make your Move") {playertext.textContent = "Player 2, Make your Move"}
-else {playertext.textContent = "Player 1, Make your Move"}
+if (turn == 0 || turn % 2 == 0) {playertext.textContent = `${player1.value}, Make Your Move!`}
+else {playertext.textContent = `${player2.value}, Make Your Move!`}
 console.log(playertext)
+
+
+
 }
 
 
@@ -197,7 +258,7 @@ if (board[0] == board[1] && board[0] == board[2] && board[0]) {
 
 
 
-const winner = board[0] == "X" ? "Player 1" : "Player 2"
+const winner = board[0] == "X" ? `${player1.value}` : `${player2.value}`
 playertext.textContent = `We have a Winner!  ${winner} Wins`
 displayReset()
 turnCellRed([0,1,2])
@@ -206,14 +267,14 @@ turnCellRed([0,1,2])
 
 
 else if (board[3] == board[4] && board[3] == board[5] && board[3]) {
-    const winner = board[3] == "X" ? "Player 1" : "Player 2"
+    const winner = board[3] == "X" ? `${player1.value}` : `${player2.value}`
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
     turnCellRed([3,4,5])
     
 }
 else if (board[6] == board[7] && board[6] == board[8] && board[6] ) {
-    const winner = board[7] == "X" ? "Player 1" : "Player 2"
+    const winner = board[7] == "X" ? `${player1.value}` : `${player2.value}`
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
     turnCellRed([6,7,8])
@@ -225,21 +286,21 @@ else if (board[6] == board[7] && board[6] == board[8] && board[6] ) {
 
 
 else if (board[0] == board[3] && board[0] == board[6] && board[0]) {
-    const winner = board[3] == "X" ? "Player 1" : "Player 2"
+    const winner = board[3] == "X" ? `${player1.value}` : `${player2.value}`
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
     turnCellRed([0,3,6])
     
 }
 else if (board[1] == board[4] && board[1] == board[7] && board[1] ) {
-    const winner = board[7] == "X" ? "Player 1" : "Player 2"
+    const winner = board[7] == "X" ? `${player1.value}` : `${player2.value}`
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
     turnCellRed([1,4,7])
 }
 
 else if (board[2] == board[5] && board[2] == board[8] && board[2]) {
-    const winner = board[3] == "X" ? "Player 1" : "Player 2"
+    const winner = board[3] == "X" ? `${player1.value}` : `${player2.value}`
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
     turnCellRed([2,5,8])
@@ -250,14 +311,14 @@ else if (board[2] == board[5] && board[2] == board[8] && board[2]) {
 
 
 else if (board[0] == board[4] && board[0] == board[8] && board[0]) {
-    const winner = board[3] == "X" ? "Player 1" : "Player 2"
+    const winner = board[3] == "X" ? `${player1.value}` : `${player2.value}`
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
     turnCellRed([0,4,8])
     
 }
 else if (board[2] == board[4] && board[2] == board[6] && board[2] ) {
-    const winner = board[7] == "X" ? "Player 1" : "Player 2"
+    const winner = board[7] == "X" ? `${player1.value}` : `${player2.value}`
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
     turnCellRed([2,4,6])
@@ -266,7 +327,7 @@ else if (board[2] == board[4] && board[2] == board[6] && board[2] ) {
 else if (board[2] == board[5] && board[2] == board[8] && board[2]) {
 
 
-    const winner = board[3] == "X" ? "Player 1" : "Player 2"
+    const winner = board[3] == "X" ? `${player1.value}` : `${player2.value}`
     playertext.textContent = `We have a Winner!  ${winner} Wins`
     displayReset()
     turnCellRed([2,5,8])
@@ -322,12 +383,6 @@ return {setToX, setToXMouseOver, remove, removeEvents, render}
 })();
 
 
-
-const Player = (name)  => {
-
-return {name}
-
-}
 
 
 

@@ -55,6 +55,7 @@ body {
 .footer {
     background-color: grey;
     display: flex;
+    grid-row: 3;
 }
 
 .footerlabel {
@@ -78,6 +79,79 @@ body {
     font-size: 2em;
 }
 
+.playerinput {
+ 
+    background-color: black;
+    border: 3px solid red;
+    align-self: center;
+    justify-self: center;
+    width: 60%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: .5fr .1fr 1fr 1fr;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    font-family: monospace;
+
+
+}
+
+.namebox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 1.0em;
+    font-family: monospace;
+}
+
+.enternames 
+{
+    font-size: .9em;
+}
+
+.inputbox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    align-self: center;
+    justify-self: left;
+
+}
+
+input[type="text"] {
+   align-self: center;
+   justify-content: center;
+   width: 80%;
+   justify-self: center;
+   height: 200%;
+   font-size: .8em;
+   font-family: monospace;
+}
+
+.submitcontainer {
+    display: grid;
+    height: 50%;
+    align-self: center;
+    width: 50%;
+    justify-self: center;
+    font-family: monospace;
+}
+
+.startgamebutton {
+    display: none;
+  
+    width: 80%;
+    height: 80%;
+    align-self: center;
+    justify-self: center;
+}
+
+.startgame {
+    font-size: .8em;
+    font-family: monospace;
+}
+
 .borderred {
     border: 2px dashed red;
 
@@ -88,7 +162,15 @@ body {
 }
 
 .none {
-    display: none;
+    display: none !important;
+}
+
+.startbutton {
+    align-self: center;
+    justify-self: center;
+    width: 30%;
+    height: 30%;
+    font-size: 3em;
 }
 
 .footertext {
@@ -243,6 +325,19 @@ justify-items: center;
         font-size: 1.2em;
     }
 
+    .playerinput {
+        width: 80%;
+        height:  80%;
+    }
+
+    .namebox, .inputbox, input[type="text"], .enternames {
+ 
+        font-size: 0.7em;
+    }
+
+    
+ 
+
     
   }
 
@@ -258,6 +353,18 @@ justify-items: center;
      }
 
      .footer {font-size: .8em;}
+    
+
+     .namebox, .inputbox, input[type="text"], .enternames {
+ 
+        font-size: 0.6em;
+    }
+
+    .startbutton {
+        width: 50%;
+        height: 50%;
+        font-size: 2em;
+    }
     
 
     
